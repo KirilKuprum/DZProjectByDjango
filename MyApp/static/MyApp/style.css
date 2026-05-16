@@ -1,0 +1,99 @@
+body {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: gray;
+}
+.container {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;       
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;  
+    box-sizing: border-box;
+}
+.contact-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.contact-text .project-info{
+    font-size:10px;
+    color:gray;
+}
+ul {
+    list-style-type: none;
+    width: 100%;
+    max-width: 500px;
+    padding: 0;        
+    margin: 20px auto 0 auto;
+}
+
+li {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9; 
+    border: 1px solid lightgray;
+    gap: 20px;
+}
+.status {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    min-width: 100px;
+    text-align: center;
+}
+
+.advanced {
+    background-color: green;
+}
+
+.intermediate {
+    background-color: yellow;
+    color: black;
+}
+
+.beginner {
+    background-color: red;
+}
+
+.skills li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-text-block {
+    text-align: left;       
+    flex: 1;                
+    min-width: 0;           
+}
+
+.project-text-block .project-title {
+    font-size: 22px;       
+    font-weight: bold;      
+    margin-bottom: 8px;     
+    color: #282727;
+}
+
+.project-text-block .project-info {
+    font-size: 14px;      
+    line-height: 1.45;      
+    margin-bottom: 8px;     
+    color: #444;
+}
+
+.project-text-block .project-year {
+    font-size: 13px;        
+    color: #777;            
+}

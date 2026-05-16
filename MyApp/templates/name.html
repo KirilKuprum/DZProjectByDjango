@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block title %}Головна{% endblock %} {% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MyApp/style.css' %}">
+    <div class="container">
+        <h1>Мій профіль</h1>
+
+        <p>{{ "Я займаюся розробкою програмного забезпечення і постійно вчуся новому."|truncatechars:30 }}</p>
+
+        <h2>Навички:</h2>
+
+        <ul class="skills">
+            {% for skill in skills %}
+                <li>
+                    {{ skill.name }}
+                    {% if skill.color == 'green' %}
+                        <span class="status advanced">Advanced</span>
+                    {% elif skill.color == 'yellow' %}
+                        <span class="status intermediate">Intermediate</span>
+                    {% elif skill.color == 'red' %}
+                        <span class="status beginner">Beginner</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

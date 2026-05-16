@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %}Контакти{% endblock %} {% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'MyApp/style.css' %}">
+    <div>
+        <h2>Мої контакти</h2>
+        
+        {% if friendly %}
+            <p>Буду радий поспілкуватися!</p>
+        {% endif %}
+
+        <ul>
+            {% for contact in contacts %}
+                <li>
+                    <div class="contact-text">
+                        <div class="project-title">{{ contact.name }}</div>
+                        <div class="project-info">{{ contact.type }}</div>
+                    </div>
+                    <a href="{{ contact.link }}" class="status advanced" style="text-decoration: none;">
+                        Написати
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
