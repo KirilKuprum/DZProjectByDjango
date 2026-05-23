@@ -12,12 +12,13 @@
                         <div class="project-info">{{ project.description }}</div>
                         <div class="project-year">Рік: {{ project.year }}</div>
                     </div>
-                    <span class="status 
+                    <span class="status
                         {% if project.status == 'Завершено' %}advanced
                         {% elif project.status == 'В розробці' %}intermediate
                         {% else %}beginner{% endif %}">
                         {{ project.status }}
                     </span>
+                    <a href="/project/{{project.id}}/">Детальніше</a>
                 </li>
             {% endfor %}
         </ul>

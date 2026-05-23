@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %}Контакти{% endblock %} {% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'MyApp/style.css' %}">
+    <h2>Schedule for Week {{ weekId }}</h2>
+
+    {% for day, lessons in schedule.items %}
+        <h3>{{ day }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Lesson Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if lessons %}
+                    {% for lesson in lessons %}
+                        <tr class="{% if lesson.is_cancelled %}cancelled{% endif %}">
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ lesson.name }}</td>
+                            <td>
+                                {% if lesson.is_cancelled %}
+                                    Cancelled
+                                {% else %}
+                                    Active
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr class="weekend-row">
+                        <td>Weekend — No classes</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
