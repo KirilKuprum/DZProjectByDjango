@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers List</title>
+</head>
+<body>
+
+    <h2>Teachers List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Teacher</th>
+                <th>Subjects</th>
+                <th>Total Lessons</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher, data in teachers_data.items %}
+                <tr>
+                    <td>{{ teacher }}</td>
+                    <td>{{ data.subjects|join:", " }}</td>
+                    <td>{{ data.lessons_count }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No teachers found in the schedule.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        <a href="javascript:history.back()">
+            ← Back
+        </a>
+    </p>
+
+</body>
+</html>

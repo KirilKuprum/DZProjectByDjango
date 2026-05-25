@@ -19,7 +19,9 @@ from django.urls import path
 from MyApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('name/',views.name, name='name'),
-    path('project/',views.project, name='project'),
-    path('contacts/',views.contacts, name='contacts'),
+    path('shedule/',views.shedule,name='shedule_default'),
+    path('shedule/<int:weekId>/',views.shedule,name='shedule'),
+    path('shedule/<int:weekId>/',views.shedule,name='shedule'),
+    path('lesson/<int:pk>/', views.lesson_detail, name='lesson_detail'),
+    path('teachers/', views.teachers_list, name='teachers_list'),
 ]

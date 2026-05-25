@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lesson.name }} - Details</title>
+</head>
+<body>
+
+    <h2>Lesson Details: {{ lesson.name }}</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Day / Week</td>
+                <td>{{ lesson.day_of_week }} (Week {{ lesson.week_id }})</td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td>{{ lesson.time_slot|default:"Not specified" }}</td>
+            </tr>
+            <tr>
+                <td>Teacher</td>
+                <td>{{ lesson.teacher|default:"Not specified" }}</td>
+            </tr>
+            <tr>
+                <td>Classroom</td>
+                <td>{{ lesson.classroom|default:"Not specified" }}</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>
+                    {% if lesson.is_cancelled %}
+                        <span>Cancelled</span>
+                    {% else %}
+                        <span>Active</span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Notes</td>
+                <td>
+                    {{ lesson.notes|default:"No additional notes." }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="javascript:history.back()">
+            ← Back to schedule
+        </a>
+    </p>
+
+</body>
+</html>
