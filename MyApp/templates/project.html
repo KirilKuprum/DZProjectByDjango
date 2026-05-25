@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block title %}Мої проєкти{% endblock %} {% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MyApp/style.css' %}">
+<body>
+    <div>
+        <h2>Мої проєкти</h2>
+        <ul >
+            {% for project in projects %}
+                <li>
+                    <div class="project-text-block">
+                        <div class="project-title"><b style="font-size:25px;">{{ project.name }}</b></div>
+                        <div class="project-info">{{ project.description }}</div>
+                        <div class="project-year">Рік: {{ project.year }}</div>
+                    </div>
+                    <span class="status
+                        {% if project.status == 'Завершено' %}advanced
+                        {% elif project.status == 'В розробці' %}intermediate
+                        {% else %}beginner{% endif %}">
+                        {{ project.status }}
+                    </span>
+                    <a href="/project/{{project.id}}/">Детальніше</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

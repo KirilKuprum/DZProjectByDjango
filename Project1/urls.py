@@ -21,7 +21,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('shedule/',views.shedule,name='shedule_default'),
     path('shedule/<int:weekId>/',views.shedule,name='shedule'),
-    path('shedule/<int:weekId>/',views.shedule,name='shedule'),
     path('lesson/<int:pk>/', views.lesson_detail, name='lesson_detail'),
     path('teachers/', views.teachers_list, name='teachers_list'),
+    path('name/',views.name, name='name'),
+    path('project/',views.project, name='project'),
+    path('project/<int:project_id>/', views.project_detail, name='project_detail'),
+    path('contacts/',views.contacts, name='contacts'),
+    
+    path('fibonacci/', views.fibonacci, name='fibonacci_default'),
+    path('fibonacci/<int:amount>/', views.fibonacci, name='fibonacci'),
+    path('fibonacci/<int:amount>/<int:numb>/', views.fibonacci, name='fibonacci'),
+    
+    path('catalog/',views.catalog,name='catalog_default'),
+    path('catalog/<int:id>/',views.catalog,name='catalog')
 ]

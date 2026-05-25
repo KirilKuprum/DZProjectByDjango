@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }}</title>
+    <link rel="stylesheet" href="{% static 'MyApp/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        
+        <ul>
+            <li>
+                
+                <div class="project-text-block">
+                    <div class="project-title">{{ project.name }}</div>
+                    
+                    <p class="project-info">{{ project.description }}</p>
+                    
+                    <span class="project-year">Рік: {{ project.year }}</span>
+                </div>
+                
+                {% if project.status == 'Завершено' %}
+                    <span class="status advanced">{{ project.status }}</span>
+                {% elif project.status == 'Тестування' %}
+                    <span class="status intermediate">{{ project.status }}</span>
+                {% else %}
+                    <span class="status beginner">{{ project.status }}</span>
+                {% endif %}
+                
+            </li>
+        </ul>
+        
+        <br>
+        <a href="/project/">← Назад до списку проектів</a>
+    </div>
+
+</body>
+</html>
